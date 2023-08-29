@@ -7,7 +7,6 @@ export enum ChainId {
   NOVA = 87,
   FANTOM = 250,
   WAVE = 550,
-  ETC = 61
 }
 
 export enum TradeType {
@@ -27,14 +26,12 @@ export const FACTORY_ADDRESSES: { [chainId in ChainId]: string } = {
   [ChainId.NOVA]: '0x9550b0c83AD5a58898cD4267987Af67e7E52bF55',
   [ChainId.WAVE]: '0x1F68F0Ac4Cd9387A0e6eB6F3B894Cb98177AB0a4',
   [ChainId.FANTOM]: '0x9550b0c83AD5a58898cD4267987Af67e7E52bF55',
-  [ChainId.ETC]: '0x9fAEd210e14F95a15b89C0D09D1a55519aC2F26d'
 }
 
 export const INIT_CODE_HASHES: { [chainId in ChainId]: string } = {
   [ChainId.NOVA]: '0x6e898add6d04d6443c8d2544bc82ca8351779bf4ae92a6e7a5d313be8603ea07',
   [ChainId.WAVE]: '0xc3c90899ffbab4fde73965749d2c0b9462b16a2965a2d1eafc21630dfb68552c',
   [ChainId.FANTOM]: '0x6e898add6d04d6443c8d2544bc82ca8351779bf4ae92a6e7a5d313be8603ea07',
-  [ChainId.ETC]: '0x885e86a743b8d54b3c16187b06b0eea701d44b20ab63bcc097fe2bfcd6b36584'
 }
 
 // exports for internal consumption

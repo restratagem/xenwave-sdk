@@ -1,5 +1,5 @@
 import { currencyEquals } from '../token'
-import { Currency, ETHER, FANTOM, WAVE, ETC } from '../currency'
+import { Currency, ETHER, FANTOM, WAVE } from '../currency'
 import invariant from 'tiny-invariant'
 import JSBI from 'jsbi'
 import _Big from 'big.js'
@@ -26,12 +26,8 @@ export class CurrencyAmount extends Fraction {
     return new CurrencyAmount(FANTOM, amount)
   }
 
-  public static nebula(amount: BigintIsh): CurrencyAmount {
+  public static wave(amount: BigintIsh): CurrencyAmount {
     return new CurrencyAmount(WAVE, amount)
-  }
-
-  public static etc(amount: BigintIsh): CurrencyAmount {
-    return new CurrencyAmount(ETC, amount)
   }
 
   // amount _must_ be raw, i.e. in the native representation
