@@ -18,7 +18,7 @@ export class Currency {
    */
   public static readonly ETHER: Currency = new Currency(18, 'SNT', 'Supernova')
   public static readonly FANTOM: Currency = new Currency(18, 'FTM', 'Fantom Opera')
-  public static readonly WAVE: Currency = new Currency(18, 'WAVE', 'Nebula X')
+  public static readonly WAVE: Currency = new Currency(18, 'WAVE', 'Wavecoin')
   public static readonly ETC: Currency = new Currency(18, 'ETC', 'Ethereum Classic')
 
   /**
