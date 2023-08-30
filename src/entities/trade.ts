@@ -230,11 +230,7 @@ export class Trade {
         .multiply(this.outputAmount.raw).quotient
       return this.outputAmount instanceof TokenAmount
         ? new TokenAmount(this.outputAmount.token, slippageAdjustedAmountOut)
-        : chainId === ChainId.FANTOM
-        ? CurrencyAmount.fantom(slippageAdjustedAmountOut)
-        : chainId === ChainId.WAVE
-        ? CurrencyAmount.wave(slippageAdjustedAmountOut)
-        : CurrencyAmount.ether(slippageAdjustedAmountOut)
+        : CurrencyAmount.ether(slippageAdjustedAmountOut, chainId)
     }
   }
 
@@ -250,11 +246,7 @@ export class Trade {
       const slippageAdjustedAmountIn = new Fraction(ONE).add(slippageTolerance).multiply(this.inputAmount.raw).quotient
       return this.inputAmount instanceof TokenAmount
         ? new TokenAmount(this.inputAmount.token, slippageAdjustedAmountIn)
-        : chainId === ChainId.FANTOM
-        ? CurrencyAmount.fantom(slippageAdjustedAmountIn)
-        : chainId === ChainId.WAVE
-        ? CurrencyAmount.wave(slippageAdjustedAmountIn)
-        : CurrencyAmount.ether(slippageAdjustedAmountIn)
+        : CurrencyAmount.ether(slippageAdjustedAmountIn, chainId)
     }
   }
 
