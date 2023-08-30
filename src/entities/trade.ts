@@ -1,7 +1,7 @@
 import invariant from 'tiny-invariant'
 import { ChainId, ONE, TradeType, ZERO } from '../constants'
 import { sortedInsert } from '../utils'
-import { Currency, ETHER, FANTOM, WAVE } from './currency'
+import { Currency, ETHER, FANTOM, WAVE, BITNET } from './currency'
 import { CurrencyAmount } from './fractions/currencyAmount'
 import { Fraction } from './fractions/fraction'
 import { Percent } from './fractions/percent'
@@ -91,7 +91,8 @@ function wrappedAmount(currencyAmount: CurrencyAmount, chainId: ChainId): TokenA
   if (
     (currencyAmount.currency === ETHER && chainId === ChainId.NOVA) ||
     (currencyAmount.currency === FANTOM && chainId === ChainId.FANTOM) ||
-    (currencyAmount.currency === WAVE && chainId === ChainId.WAVE)
+    (currencyAmount.currency === WAVE && chainId === ChainId.WAVE) ||
+    (currencyAmount.currency === BITNET && chainId === ChainId.BITNET)
   )
     return new TokenAmount(WETH[chainId], currencyAmount.raw)
   invariant(false, 'CURRENCY')
@@ -102,7 +103,8 @@ function wrappedCurrency(currency: Currency, chainId: ChainId): Token {
   if (
     (currency === ETHER && chainId === ChainId.NOVA) ||
     (currency === FANTOM && chainId === ChainId.FANTOM) ||
-    (currency === WAVE && chainId === ChainId.WAVE)
+    (currency === WAVE && chainId === ChainId.WAVE) ||
+    (currency === BITNET && chainId === ChainId.BITNET)
   )
     return WETH[chainId]
   invariant(false, 'CURRENCY')
@@ -194,6 +196,8 @@ export class Trade {
         ? CurrencyAmount.fantom(amounts[0].raw)
         : route.input === WAVE && route.chainId === ChainId.WAVE
         ? CurrencyAmount.wave(amounts[0].raw)
+        : route.input === BITNET && route.chainId === ChainId.BITNET
+        ? CurrencyAmount.bitnet(amounts[0].raw)
         : amounts[0]
     this.outputAmount =
       tradeType === TradeType.EXACT_OUTPUT
@@ -204,6 +208,8 @@ export class Trade {
         ? CurrencyAmount.fantom(amounts[amounts.length - 1].raw)
         : route.output === WAVE && route.chainId === ChainId.WAVE
         ? CurrencyAmount.wave(amounts[amounts.length - 1].raw)
+        : route.output === BITNET && route.chainId === ChainId.BITNET
+        ? CurrencyAmount.bitnet(amounts[amounts.length - 1].raw)
         : amounts[amounts.length - 1]
     this.executionPrice = new Price(
       this.inputAmount.currency,

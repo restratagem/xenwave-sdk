@@ -1,5 +1,5 @@
 import { currencyEquals } from '../token'
-import { Currency, ETHER, FANTOM, WAVE } from '../currency'
+import { Currency, ETHER, FANTOM, WAVE, BITNET } from '../currency'
 import invariant from 'tiny-invariant'
 import JSBI from 'jsbi'
 import _Big from 'big.js'
@@ -22,6 +22,7 @@ export class CurrencyAmount extends Fraction {
     if (chainId === ChainId.NOVA) return new CurrencyAmount(ETHER, amount)
     else if (chainId === ChainId.FANTOM) return new CurrencyAmount(FANTOM, amount)
     else if (chainId == ChainId.WAVE) return new CurrencyAmount(WAVE, amount)
+    else if (chainId == ChainId.BITNET) return new CurrencyAmount(BITNET, amount)
     else return new CurrencyAmount(ETHER, amount)
   }
 
@@ -31,6 +32,10 @@ export class CurrencyAmount extends Fraction {
 
   public static wave(amount: BigintIsh): CurrencyAmount {
     return new CurrencyAmount(WAVE, amount)
+  }
+
+  public static bitnet(amount: BigintIsh): CurrencyAmount {
+    return new CurrencyAmount(BITNET, amount)
   }
 
   // amount _must_ be raw, i.e. in the native representation
