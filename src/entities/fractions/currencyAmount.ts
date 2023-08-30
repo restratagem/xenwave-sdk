@@ -21,7 +21,7 @@ export class CurrencyAmount extends Fraction {
   public static ether(amount: BigintIsh, chainId = ChainId.NOVA): CurrencyAmount {
     if (chainId === ChainId.NOVA) return new CurrencyAmount(ETHER, amount)
     else if (chainId === ChainId.FANTOM) return new CurrencyAmount(FANTOM, amount)
-    else if (chainId == ChainId.WAVE) return new CurrencyAmount(ETHER, amount)
+    else if (chainId == ChainId.WAVE) return new CurrencyAmount(WAVE, amount)
     else return new CurrencyAmount(ETHER, amount)
   }
 
