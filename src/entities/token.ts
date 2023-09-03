@@ -59,6 +59,6 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
 export const WETH = {
   [ChainId.NOVA]: new Token(ChainId.NOVA, '0x657a66332A65B535Da6C5d67b8cD1D410c161a08', 18, 'WSNT', 'Wrapped SNT'),
   [ChainId.FANTOM]: new Token(ChainId.FANTOM, '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', 18, 'WFTM', 'Wrapped FTM'),
-  [ChainId.WAVE]: new Token(ChainId.WAVE, '0x508aeBc3172eE8FdA7cc746f224C8D9061be7cbd', 18, 'WWAVE', 'Wrapped Wavecoin'),
-  [ChainId.BITNET]: new Token(ChainId.BITNET, '0x8148b71232162ea7a0b1c8bfe2b8f023934bfb58', 18, 'BTN', 'Bitnet')
+  [ChainId.WAVE]: new Token(ChainId.WAVE, '0x508aeBc3172eE8FdA7cc746f224C8D9061be7cbd', 18, 'WTWAVE', 'Wrapped Wavecoin'),
+  [ChainId.BITNET]: new Token(ChainId.BITNET, '0x8148b71232162ea7a0b1c8bfe2b8f023934bfb58', 18, 'WBTN', 'Wrapped Bitnet')
 }
