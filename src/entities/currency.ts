@@ -35,8 +35,6 @@ export class Currency {
   }
 }
 
-const ETHER = Currency.ETHER
-const FANTOM = Currency.FANTOM
 const WAVE = Currency.WAVE
 const BITNET = Currency.BITNET
-export { ETHER, FANTOM, WAVE, BITNET }
+export { WAVE, BITNET }

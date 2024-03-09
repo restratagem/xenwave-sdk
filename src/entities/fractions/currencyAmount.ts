@@ -1,11 +1,11 @@
 import { currencyEquals } from '../token'
-import { Currency, ETHER, FANTOM, WAVE, BITNET } from '../currency'
+import { Currency, WAVE, BITNET } from '../currency'
 import invariant from 'tiny-invariant'
 import JSBI from 'jsbi'
 import _Big from 'big.js'
 import toFormat from 'toformat'
 
-import { BigintIsh, Rounding, TEN, SolidityType, ChainId } from '../../constants'
+import { BigintIsh, Rounding, TEN, SolidityType } from '../../constants'
 import { parseBigintIsh, validateSolidityTypeInstance } from '../../utils'
 import { Fraction } from './fraction'
 
@@ -18,16 +18,8 @@ export class CurrencyAmount extends Fraction {
    * Helper that calls the constructor with the ETHER currency
    * @param amount ether amount in wei
    */
-  public static ether(amount: BigintIsh, chainId = ChainId.NOVA): CurrencyAmount {
-    if (chainId === ChainId.NOVA) return new CurrencyAmount(ETHER, amount)
-    else if (chainId === ChainId.FANTOM) return new CurrencyAmount(FANTOM, amount)
-    else if (chainId == ChainId.WAVE) return new CurrencyAmount(WAVE, amount)
-    else if (chainId == ChainId.BITNET) return new CurrencyAmount(BITNET, amount)
-    else return new CurrencyAmount(ETHER, amount)
-  }
-
-  public static fantom(amount: BigintIsh): CurrencyAmount {
-    return new CurrencyAmount(FANTOM, amount)
+  public static ether(amount: BigintIsh): CurrencyAmount {
+    return new CurrencyAmount(BITNET, amount)
   }
 
   public static wave(amount: BigintIsh): CurrencyAmount {
